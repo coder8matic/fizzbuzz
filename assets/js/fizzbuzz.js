@@ -1,32 +1,36 @@
+function makeResponse(message, placeholder) {
+    console.log(message);
+    let dom = document;
+    dom.getElementById("message").innerHTML=message;
+    dom.getElementById("input-number").placeholder=placeholder;
+    dom.getElementById("input-number").value=null;
+}
+
+
 let button = document.getElementById('check-button');
 
 button.addEventListener('click', function (event){
     let inputNumber = parseInt(document.getElementById('input-number').value, 10);
     
-    if (Number.isInteger(inputNumber) == true && inputNumber % 3 == 0 && inputNumber % 5 == 0) {
-        console.log("FizzBuzz");
-        document.getElementById("message").innerHTML=`FizzBuzz!`;
-        document.getElementById("input-number").placeholder=`${inputNumber}`;
-        document.getElementById("input-number").value=null;
-    } else if (Number.isInteger(inputNumber) == true && inputNumber % 3 == 0 ) {
-        console.log("Fizz");
-        document.getElementById("message").innerHTML=`Fizz!`;
-        document.getElementById("input-number").placeholder=`${inputNumber}`;
-        document.getElementById("input-number").value=null;
-    } else if (Number.isInteger(inputNumber) == true && inputNumber % 5 == 0 ) {
-        console.log("Buzz");
-        document.getElementById("message").innerHTML=`Buzz!`;
-        document.getElementById("input-number").placeholder=`${inputNumber}`;
-        document.getElementById("input-number").value=null;
-    } else if (Number.isInteger(inputNumber) == true) {
-        console.log("Buzz");
-        document.getElementById("message").innerHTML=`${inputNumber}`;
-        document.getElementById("input-number").placeholder=`${inputNumber}`;
-        document.getElementById("input-number").value=null;
-    } else {
-        console.log('Something went wrong')
-        document.getElementById("message").innerHTML=`Something went wrong!`;
-        document.getElementById("input-number").placeholder=`Insert a number`;
-        document.getElementById("input-number").value=null;
+    if (Number.isInteger(guessSecret) == false) {
+        var notNumberMessage = `Something went wrong!`;
+        var notNumberPlaceholder = `Insert a number`;
+        makeResponse(notNumberMessage, notNumberPlaceholder);
+    }else {
+        if (inputNumber % 3 == 0 && inputNumber % 5 == 0) {
+            var FizzBuzzMessage = `FizzBuzz`;
+            var FizzBuzzPlaceholder = inputNumber;
+            makeResponse(FizzBuzzMessage, FizzBuzzPlaceholder);
+        } else if (inputNumber % 3 == 0 ) {
+            var FizzMessage = `Fizz`;
+            var FizzPlaceholder = inputNumber;
+            makeResponse(FizzMessage, FizzPlaceholder);
+        } else if (inputNumber % 5 == 0 ) {
+            var BuzzMessage = `FizzBuzz`;
+            var BuzzPlaceholder = inputNumber;
+            makeResponse(BuzzMessage, BuzzPlaceholder);
+        } else {
+            makeResponse(inputNumber, inputNumber);
+        } 
     }
 });
