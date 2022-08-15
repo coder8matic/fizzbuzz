@@ -12,7 +12,7 @@ let button = document.getElementById('check-button');
 button.addEventListener('click', function (event){
     let inputNumber = parseInt(document.getElementById('input-number').value, 10);
     
-    if (Number.isInteger(guessSecret) == false) {
+    if (Number.isInteger(inputNumber) == false) {
         var notNumberMessage = `Something went wrong!`;
         var notNumberPlaceholder = `Insert a number`;
         makeResponse(notNumberMessage, notNumberPlaceholder);
@@ -26,7 +26,7 @@ button.addEventListener('click', function (event){
             var FizzPlaceholder = inputNumber;
             makeResponse(FizzMessage, FizzPlaceholder);
         } else if (inputNumber % 5 == 0 ) {
-            var BuzzMessage = `FizzBuzz`;
+            var BuzzMessage = `Buzz`;
             var BuzzPlaceholder = inputNumber;
             makeResponse(BuzzMessage, BuzzPlaceholder);
         } else {
